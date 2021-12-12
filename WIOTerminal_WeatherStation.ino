@@ -645,9 +645,10 @@ void WeatherNowDisp(void)  // Json数据解析并串口打印
   LCD_Type.println (WiFi.localIP()); // prints out the device's IP address
     
   HTTPClient http;
-
-  http.begin("http://api.seniverse.com/v3/weather/now.json?key=SbiDME8QHMpPNcLux&location=shanghai&language=en&unit=c");
-
+// change XXXXXXXXXXX as your key
+#ifdef XXXXXXXXXXX
+  http.begin("http://api.seniverse.com/v3/weather/now.json?key=XXXXXXXXXXX&location=shanghai&language=en&unit=c");
+#endif
   int httpCode = http.GET();
   if(httpCode > 0) {
     LCD_Type.print("[HTTP] GET... ");
@@ -752,7 +753,10 @@ void Weather3DaysDisp(void)  // Json数据解析并串口打印
   
   HTTPClient http;
 
-  http.begin("http://api.seniverse.com/v3/weather/daily.json?key=SbiDME8QHMpPNcLux&location=shanghai&language=en&unit=c&start=0&days=3");
+// change XXXXXXXXXXX as your key
+#ifdef XXXXXXXXXXX
+  http.begin("http://api.seniverse.com/v3/weather/daily.json?key=XXXXXXXXXXX&location=shanghai&language=en&unit=c&start=0&days=3");
+#endif
 
   int httpCode = http.GET();
   if(httpCode > 0) {
